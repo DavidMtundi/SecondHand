@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mustapp/counters/cartitemcounter.dart';
-import 'package:mustapp/models/productmodel.dart';
 import 'package:mustapp/screens/shoppingcart.dart';
-import 'package:mustapp/search_result/search_result_screen.dart';
 import 'package:mustapp/utils/constant.dart';
-import 'package:mustapp/utils/util.dart';
 import 'package:mustapp/widgets/search_field.dart';
 import 'package:page_transition/page_transition.dart';
 

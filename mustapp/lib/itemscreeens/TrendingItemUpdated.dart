@@ -32,7 +32,7 @@ class TrendingItemUpdated extends StatefulWidget {
 }
 
 class _TrendingItemUpdatedState extends State<TrendingItemUpdated> {
-  bool isloading =false;
+  bool isloading = false;
   @override
   Widget build(BuildContext context) {
     double trendCardWidth = CustomWidth(context, 140);
@@ -64,24 +64,26 @@ class _TrendingItemUpdatedState extends State<TrendingItemUpdated> {
                     ),
                     _productImage(context),
                     _productDetails(context),
-                 isloading?CustomLoadingWidget(text: "...",isitem:true):   SubmitButton(
-                        resizableheight: true,
-                        title: "Add",
-                        act: () async {
-                          setState(() {
-                            isloading =true;
-                          });
-                          try {
-                            checkIteminCart(widget.product.id, context);
-                          } catch (e) {
-                            setState(() {
-                              isloading =false;
-                            });
-                          }
-                          setState(() {
-                            isloading =false;
-                          });
-                        })
+                    isloading
+                        ? CustomLoadingWidget(text: "...", isitem: true)
+                        : SubmitButton(
+                            resizableheight: true,
+                            title: "Add",
+                            act: () async {
+                              setState(() {
+                                isloading = true;
+                              });
+                              try {
+                                checkIteminCart(widget.product.id, context);
+                              } catch (e) {
+                                setState(() {
+                                  isloading = false;
+                                });
+                              }
+                              setState(() {
+                                isloading = false;
+                              });
+                            })
                   ],
                 ),
               ),
@@ -127,8 +129,9 @@ class _TrendingItemUpdatedState extends State<TrendingItemUpdated> {
 
   _productDetails(BuildContext context) {
     return Padding(
-      padding:
-          widget.size != 18 ? EdgeInsets.only(left: 10) : EdgeInsets.only(left: 2),
+      padding: widget.size != 18
+          ? EdgeInsets.only(left: 10)
+          : EdgeInsets.only(left: 2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -145,7 +148,7 @@ class _TrendingItemUpdatedState extends State<TrendingItemUpdated> {
             children: <Widget>[
               Text(widget.product.price.toString(),
                   style: TextStyle(
-                      fontSize: customfont(context, 11),
+                      fontSize: customfont(context, 10),
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.lineThrough,
                       color: Colors.red)),
